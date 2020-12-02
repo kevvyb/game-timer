@@ -2,19 +2,17 @@ import time
 import matplotlib.pyplot as plt
 
 #returns max number in a list
-def maxi(list):
-    max = 0
-    for time in list:
-        if time > max:
-            max = time
+# You can take the max element of a list directly, also try not to use python keywords e.g. list, max as variable names
+def maxi(xlist):
+    max_element = max(xlist)
+    if time > max_element:
+        max = time
     return max
 
 #returns sum of numbers in a list
-def sumi(list):
-    sum = 0
-    for time in list:
-        sum = sum + time
-    return sum
+# You can just sum a list directly
+def sumi(xlist):
+    return sum(xlist)
 
 #returns average given a sum and the number of items
 def avgi(sum, leng):
@@ -34,7 +32,8 @@ while True:
     if nam == "done":
         break
     playerList.append(nam)
-    num = num+1
+    # A little syntactic sugar for incrementing variables
+    num += 1
 
 print("The players are:")
 for player in playerList:
@@ -45,7 +44,9 @@ for player in playerList:
 while True:
   inp = input("Type 'start' when ready to begin timing: ")
   inp = inp.lower()
-  if inp == "start" or inp == "Start":
+
+  #inp can't have any upper case after you've forced it to lower
+  if inp == "start":
     break
   else:
     continue
@@ -63,7 +64,7 @@ while True:
     if inp.lower() == "end":
         break
     if inp.lower() == "next":
-        turnOverall = turnOverall + 1
+        turnOverall += 1
         continue
 
     timeB = time.perf_counter()
